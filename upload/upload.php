@@ -1,5 +1,5 @@
 <?php
-
+/* test */
 $target_dir        = "uploads/";
 $uploadOk          = true;
 $target_file       = $target_dir . basename($_FILES['file']['name']);
