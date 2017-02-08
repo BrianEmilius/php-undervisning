@@ -45,9 +45,15 @@ if ($_POST) {
 	## FEJLHÅNDTERING
 	if ( $fejl === 0 ) { // Hvis der ikke er nogen fejl
 		$conn = mysqli_connect('localhost', 'root', '', 'shop');
-		mysqli_query($conn, "INSERT INTO `produkter` (produktnavn, produktinfo, produktpris)
-							 VALUES('$produktnavn', '$produktinfo', '$produktpris')");
-		mysqli_close($conn);
+		if ( $stmt = mysqli_prepare($conn, "INSERT INTO `produkter` (produktnavn, produktinfo, produktpris)
+							 VALUES(?, ?, ?)") ) {
+			mysqli_stmt_bind_param($stmt, 'ssi', $produktnavn, $produktinfo, $produktpris);
+			mysqli_stmt_execute($stmt);
+			mysqli_stmt_close($stmt);
+			mysqli_close($conn);
+		} else {
+			$success = "stmt fejl";
+		}
 
 		unset($produktnavn, $produktinfo, $produktpris);
 		$success = 'Produktet blev oprettet.';

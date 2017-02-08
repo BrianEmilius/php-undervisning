@@ -28,7 +28,7 @@ while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
 	<td><?=$row['ID']?></td>
 	<td><?=$row['produktnavn']?></td>
 	<td><?=$row['produktinfo']?></td>
-	<td><?=$row['produktpris']?></td>
+	<td><?=$row['produktpris']?> rubler</td>
 	<td><a href="produkt.php?id=<?=$row['ID']?>">Vis</a></td>
 </tr>
 <?php

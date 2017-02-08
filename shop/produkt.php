@@ -31,7 +31,9 @@ $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 				<td><?=$row['produktnavn']?></td>
 				<td><?=$row['produktinfo']?></td>
 				<td><?=$row['produktpris']?></td>
-				<td><a href="retprodukt.php?id=<?=$produktid?>">Rediger</a></td>
+				<td><a href="retprodukt.php?id=<?=$produktid?>">Rediger</a>
+				    <a href="sletprodukt.php?id=<?=$produktid?>" onclick="return confirm('Er du sikker på at du vil slette produktet?');">Slet</a>
+				</td>
 			</tr>
 		</tbody>
 	</table>
