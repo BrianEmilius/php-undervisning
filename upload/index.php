@@ -5,7 +5,7 @@
 	<title>Upload</title>
 </head>
 <body>
-	<h1>File upload</h1>
+	<h1>Fil upload</h1>
 	<form action="upload.php" method="post" enctype="multipart/form-data">
 		<label for="file">Vælg en fil:</label>
 		<input type="file" id="file" name="file" required>
