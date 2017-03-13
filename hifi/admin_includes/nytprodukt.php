@@ -44,8 +44,8 @@ if ($_POST) {
       }
   }
   $stmt = $conn->prepare("INSERT INTO produkter
-	       (navn, beskrivelse, pris, fkKategoriId, fkModelId, billede)
-				 VALUES (?, ?, ?, ?, ?, ?)");
+                          (navn, beskrivelse, pris, fkKategoriId, fkModelId, billede)
+                          VALUES (?, ?, ?, ?, ?, ?)");
 	$stmt->bind_param('ssdiis', $_POST['produktNavn'],
 														 $_POST['produktBeskrivelse'],
 														 $_POST['produktPris'],
