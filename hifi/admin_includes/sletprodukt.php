@@ -22,5 +22,3 @@ if ($stmt = $conn->prepare("DELETE FROM produkter WHERE id = ?")) {
 } else {
 	echo 'Noget meget farligt gik galt (solarflares)';
 }
-
-?>
