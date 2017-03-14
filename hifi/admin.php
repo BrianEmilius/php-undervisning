@@ -34,13 +34,14 @@ require_once 'sqlconfig.php';
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="admin.php?p=produkter">Produkter</a></li>
-            <li><a href="#">Settings</a></li>
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Help</a></li>
+            <li><a href="#">Kategorier</a></li>
+            <li><a href="#">Modeller</a></li>
+            <li><a href="#">Nyheder</a></li>
+            <li><a href="#">Log ud</a></li>
           </ul>
-          <form class="navbar-form navbar-right">
+          <!--<form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">
-          </form>
+          </form>-->
         </div>
       </div>
     </nav>

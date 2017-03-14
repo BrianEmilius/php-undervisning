@@ -27,7 +27,7 @@
 			       <td>'.$row['katNavn'].'</td>
 						 <td>'.$row['modNavn'].'</td>
 						 <td>'.$row['navn'].'</td>
-						 <td>'.$row['pris'].'</td>
+						 <td><span class="float-left">kr. </span><span class="float-right">'.number_format($row['pris'], 2, ',', '.').'</span></td>
 						 <td><a href="admin.php?p=redigerprodukt&id='.$row['id'].'"><i class="glyphicon glyphicon-pencil"></i></a></td>
 						</tr>';
 		}
