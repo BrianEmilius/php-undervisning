@@ -58,7 +58,7 @@ if ($_POST) {
 }
 ?>
 
-<h1>Nyt produkt</h1>
+<h1 class="page-header">Nyt produkt</h1>
 
 <form action="admin.php?p=nytprodukt" method="post" class="form-horizontal" enctype="multipart/form-data">
 

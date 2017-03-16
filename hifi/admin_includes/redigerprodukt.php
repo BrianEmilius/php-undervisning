@@ -85,7 +85,7 @@ if ($_POST) {
 }
 ?>
 
-<h1>Rediger produkt</h1>
+<h1 class="page-header">Rediger produkt</h1>
 
 <form action="" method="post" class="form-horizontal" enctype="multipart/form-data">
 
@@ -158,7 +158,8 @@ if ($_POST) {
 <div class="form-group">
 	<label class="col-md-4 control-label" for="Opret"></label>
 	<div class="col-md-4">
-		<button id="Opret" name="Opret" class="btn btn-success">Opret</button>
+		<button id="Opret" class="btn btn-success" type="submit">Gem</button>
+		<input type="button" class="btn btn-warning" onclick="window.location='admin.php?p=produkter'" value="Annuller">
 	</div>
 </div>
 </form>

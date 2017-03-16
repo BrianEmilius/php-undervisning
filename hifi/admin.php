@@ -1,5 +1,12 @@
 <?php
 require_once 'sqlconfig.php';
+
+session_start();
+if (!$_SESSION['isLoggedIn'] === true) {
+  header('Location: login.php');
+  die();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +44,7 @@ require_once 'sqlconfig.php';
             <li><a href="#">Kategorier</a></li>
             <li><a href="#">Modeller</a></li>
             <li><a href="#">Nyheder</a></li>
-            <li><a href="#">Log ud</a></li>
+            <li><a href="logout.php">Log ud</a></li>
           </ul>
           <!--<form class="navbar-form navbar-right">
             <input type="text" class="form-control" placeholder="Search...">
