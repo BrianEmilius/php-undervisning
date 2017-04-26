@@ -1,0 +1,13 @@
+hvis REQUEST er POST
+	hvis REQUEST indeholder USERNAME og PASSWORD og ikke er tomme
+		ny constant USERNAME af (POST)USERNAME
+		ny constant PASSWORD af (POST)PASSWORD
+		ny sql FORBINDELSE
+		sql forespørgsel indsæt i brugere sæt username til USERNAME og password til PASSWORD
+		hvis forespørgsel ikke lykkes
+			location opret.php
+			dø
+		ellers
+			ny session
+			ny SESSION med variabel ISLOGGEDIN sættes til TRUE
+			location hemmeligosteside.php

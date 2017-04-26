@@ -1,0 +1,13 @@
+hvis REQUEST er POST
+	hvis REQUEST indeholder USERNAME og PASSWORD og ikke er tomme
+		ny constant USERNAME af USERNAME (POST)
+		ny constant PASSWORD af PASSWORD (POST)
+		ny sql FORBINDELSE
+		sql forespørgsel vælg id fra brugere hvor username matcher USERNAME og password matcher PASSWORD
+		hvis USERNAME og PASSWORD eksisterer i database
+			hvis der ikke kun er 1 match
+				location index.php
+				dø
+			ellers
+				start ny session
+				ny SESSION med variabel ISLOGGEDIN sættes til TRUE
