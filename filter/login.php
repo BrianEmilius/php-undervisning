@@ -1,5 +1,12 @@
 <?php
 
+spl_autoload_register(function ($class_name) {
+	$file = __DIR__ . DIRECTORY_SEPARATOR . 'classes' . DIRECTORY_SEPARATOR . $class_name . '.php';
+	if (file_exists($file)) {
+		require_once $file;
+	}
+});
+
 require_once 'functions.php';
 
 if (!methodCheck('POST')) {
@@ -18,19 +25,12 @@ unset($_SESSION['tokenTime']);
 
 if (isset($variables['username']) && !empty($variables['username']) &&
 		isset($variables['password']) && !empty($variables['password'])) {
-
-	$stmt = $pdo->prepare("SELECT id, password FROM brugere
-												WHERE username = :username");
-	$stmt->bindParam(':username', $variables['username']);
-	$stmt->execute();
-
-	$result = $stmt->fetch(PDO::FETCH_ASSOC);
-
-	if (!password_verify($variables['password'], $result['password'])) {
+	$user = new User();
+	if (!$user->verifyUser($variables['username'], $variables['password'])) {
 		header('Location: index.php');
 		die();
 	} else {
-		doLogin($result['id']);
+		doLogin($user->getUserId($variables['username']));
 		header('Location: hemmeligosteside.php');
 	}
 }

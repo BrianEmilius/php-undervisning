@@ -56,4 +56,42 @@ class User {
 		$row = $result->fetch(PDO::FETCH_ASSOC);
 		return $row['id'];
 	}
+
+	public function verifyUser($username, $password) {
+		$this->username = $username;
+		$this->password = $password;
+
+		if ($stmt = $this->pdo->prepare("SELECT id, password FROM brugere
+																		 WHERE username = :username")) {
+			$stmt->bindParam(':username', $this->username, PDO::PARAM_STR);
+			if ($stmt->execute()) {
+				$result = $stmt->fetch(PDO::FETCH_ASSOC);
+				if (password_verify($this->password, $result['password'])) {
+					return true;
+				} else {
+					return false;
+				}
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
+	}
+
+	public function getUserId($username) {
+		$this->username = $username;
+		if ($stmt = $this->pdo->prepare("SELECT id FROM brugere
+		                                 WHERE username = :username")) {
+			$stmt->bindParam(':username', $this->username, PDO::PARAM_STR);
+			if ($stmt->execute()) {
+				$result = $stmt->fetch(PDO::FETCH_ASSOC);
+				return $result['id'];
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
+	}
 }
