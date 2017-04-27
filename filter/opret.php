@@ -1,8 +1,7 @@
 <?php
-$method = filter_input(INPUT_SERVER, 'REQUEST_METHOD',
-					FILTER_SANITIZE_SPECIAL_CHARS);
+require_once 'functions.php';
 
-if ($method != 'POST') {
+if (!methodCheck('POST')) {
 	die('BABY SKAL BARE DØ, SIGER JEG!');
 }
 
@@ -35,8 +34,7 @@ if (isset($variables['username']) && !empty($variables['username']) &&
 			header('Location: index.php');
 			die();
 		} else {
-			session_start();
-			$_SESSION['isLoggedIn'] = TRUE;
+			doLogin($pdo->lastInsertId());
 			header('Location: hemmeligosteside.php');
 		}
 	}
