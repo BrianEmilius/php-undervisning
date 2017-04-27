@@ -10,8 +10,6 @@ $variables = filter_input_array(INPUT_POST, FILTER_SANITIZE_SPECIAL_CHARS);
 if (isset($variables['username']) && !empty($variables['username']) &&
 		isset($variables['password']) && !empty($variables['password'])) {
 
-	$pdo = new PDO('mysql:host=localhost;dbname=cheeseshop', 'root', '');
-
 	$stmt = $pdo->prepare("SELECT id FROM brugere
 												WHERE username = :username");
 	$stmt->bindParam(':username', $variables['username']);
